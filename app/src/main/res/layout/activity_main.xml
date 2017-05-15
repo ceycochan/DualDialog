@@ -15,7 +15,7 @@
         android:id="@+id/btn_res"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:background="@color/colorPrimary"
+        android:background="#999988"
         android:text="Resolution" />
 
     <Button
@@ -23,6 +23,23 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="30dp"
-        android:background="@color/colorAccent"
+        android:background="#999988"
         android:text="Dialog Adapter" />
+
+    <Button
+        android:id="@+id/btn_res3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="30dp"
+        android:background="#999988"
+        android:text="Multi Dialog" />
+
+    <TextView
+        android:id="@+id/tv_show"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="30dp"
+        android:textSize="20sp" />
+
+
 </LinearLayout>

@@ -17,6 +17,5 @@
         android:layout_height="match_parent"
         android:layout_marginLeft="16dp"
         android:gravity="center_vertical|left"
-        android:text="hah"
         android:textSize="52sp" />
 </LinearLayout>

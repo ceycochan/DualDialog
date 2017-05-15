@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string-array name="dialog_items">
+        <item>MEMO</item>
+        <item>BAIDU</item>
+        <item>TAOBAO</item>
+        <item>SETTING</item>
+    </string-array>
+
+
+
+    <string-array name="dialog_items2">
+        <item>上天</item>
+        <item>修仙</item>
+        <item>作死</item>
+        <item>装死</item>
+    </string-array>
+</resources>

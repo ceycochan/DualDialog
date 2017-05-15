@@ -2,14 +2,18 @@ package com.nshane.dualdialog.ui;
 
 import android.app.AlertDialog;
 import android.content.DialogInterface;
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.Button;
+import android.widget.TextView;
+import android.widget.Toast;
 
 import com.nshane.dualdialog.R;
 import com.nshane.dualdialog.adapter.ThemeItemAdapter;
 import com.nshane.dualdialog.bean.ThemeInfo;
+import com.nshane.dualdialog.utils.Utils;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -18,6 +22,8 @@ public class MainActivity extends AppCompatActivity {
 
     private Button btn_res;
     private Button btn_adapter;
+    private Button btn_multi;
+    private TextView tv_show;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -30,7 +36,9 @@ public class MainActivity extends AppCompatActivity {
     private void initView() {
         btn_res = (Button) findViewById(R.id.btn_res);
         btn_adapter = (Button) findViewById(R.id.btn_res2);
+        btn_multi = (Button) findViewById(R.id.btn_res3);
 
+        tv_show = (TextView) findViewById(R.id.tv_show);
 
         btn_res.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -47,7 +55,44 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
+
+        btn_multi.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                initMultiDialog();
+            }
+        });
+
     }
+
+    private void initMultiDialog() {
+        AlertDialog.Builder builder = new AlertDialog.Builder(this);
+        builder.setTitle("请选择你的爱好");
+        final String[] hobbies = getResources().getStringArray(R.array.dialog_items2);
+        final boolean[] checkedItems = new boolean[hobbies.length];
+        builder.setMultiChoiceItems(R.array.dialog_items2, checkedItems, new DialogInterface.OnMultiChoiceClickListener() {
+
+            @Override
+            public void onClick(DialogInterface dialog, int which, boolean isChecked) {
+                checkedItems[which] = isChecked;
+            }
+        });
+        builder.setPositiveButton("确定", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialog, int which) {
+                StringBuilder sb = new StringBuilder();
+                for (int i = 0; i < checkedItems.length; i++) {
+                    if (checkedItems[i]) {
+                        sb.append(hobbies[i]).append(" ");
+                    }
+                }
+                tv_show.setText(sb.toString());
+            }
+        });
+        builder.create().show();
+    }
+
 
     private void showThemeDialog() {
         List<ThemeInfo> themeList = initThemeData();
@@ -61,6 +106,7 @@ public class MainActivity extends AppCompatActivity {
                     @Override
                     public void onClick(DialogInterface dialog, int which) {
                         if (which == 0) {
+
                         }
                     }
                 })
@@ -69,22 +115,35 @@ public class MainActivity extends AppCompatActivity {
     }
 
 
-    private int mSelectionRes = 0; // res chosen by default
+    private int mSelectionRes = -1; // res chosen by default  //-1: null chosen when 1st time chose
 
 
     private void showDialog() {
-        String select[] = new String[]{"MEMO", "BAIDU", "TAOBAO"};
+//        String select[] = new String[]{"MEMO", "BAIDU", "TAOBAO"};
+        String select[] = getResources().getStringArray(R.array.dialog_items);
         AlertDialog.Builder builder = new AlertDialog.Builder(this);
-        builder.setTitle("Select a Website");
-        builder.setSingleChoiceItems(select, mSelectionRes, new DialogInterface.OnClickListener() {
-            @Override
-            public void onClick(DialogInterface dialog, int which) {
-                mSelectionRes = which;  // redefine chosen item
-                dialog.dismiss();
-            }
-        });
-        AlertDialog alertDialog = builder.create();
-        alertDialog.show();
+        builder.setTitle("Select a Website")
+                .setSingleChoiceItems(select, mSelectionRes, new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog, int which) {
+                        mSelectionRes = which;  // redefine chosen item, and loging
+                        Intent intent = new Intent();
+                        if (which == 3) {
+                            /**
+                             *   for general android devices using
+                             */
+//                            intent.setAction("android.settings.SETTINGS");
+//                            startActivity(intent);
+
+                            //for leanback only
+                            Utils.startAPP(getApplicationContext(), "com.android.tv.settings");
+//
+                            Toast.makeText(MainActivity.this, "haha", Toast.LENGTH_SHORT).show();
+                        }
+                        dialog.dismiss();
+                    }
+                });
+        builder.create().show();
     }
 
 
