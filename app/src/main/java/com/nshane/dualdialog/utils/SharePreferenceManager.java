@@ -15,10 +15,10 @@ public class SharePreferenceManager {
         public static final String XML_NAME = "SETTING_DOMAIN";
 
 
-        public static final KEY<String> KEY_SERVER_DOMAIN = new KEY<String>("server_domain", Constants.SERVER_HOST_DEFAULT);
+//        public static final KEY<String> KEY_SERVER_DOMAIN = new KEY<String>("server_domain", Constants.SERVER_HOST_DEFAULT);
         public static final KEY<String> KEY_SERVER_DOMAIN_REQUEST = new KEY<String>("server_site", "");
 
-        public static final KEY<String> KEY_SERVER_LOG = new KEY<String>("server_log_default", Constants.SERVER_LOG_DEFAULT);
+//        public static final KEY<String> KEY_SERVER_LOG = new KEY<String>("server_log_default", Constants.SERVER_LOG_DEFAULT);
         public static final KEY<String> KEY_SERVER_LOG_REQUEST = new KEY<String>("server_log", "");
 
     }
