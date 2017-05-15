@@ -98,7 +98,6 @@ public class LogUtil {
 			Log.e(tag, getMsgWithLineNumber(msg));
 		}
 	}
-
 	/**
 	 * 输出Error级别的异常日志。
 	 *
