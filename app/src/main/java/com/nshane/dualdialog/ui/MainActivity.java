@@ -3,6 +3,7 @@ package com.nshane.dualdialog.ui;
 import android.app.AlertDialog;
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.graphics.Color;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
@@ -24,6 +25,7 @@ public class MainActivity extends AppCompatActivity {
     private Button btn_adapter;
     private Button btn_multi;
     private TextView tv_show;
+    private Button btn_base;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -37,7 +39,7 @@ public class MainActivity extends AppCompatActivity {
         btn_res = (Button) findViewById(R.id.btn_res);
         btn_adapter = (Button) findViewById(R.id.btn_res2);
         btn_multi = (Button) findViewById(R.id.btn_res3);
-
+        btn_base = (Button) findViewById(R.id.btn_base_dialog);
         tv_show = (TextView) findViewById(R.id.tv_show);
 
         btn_res.setOnClickListener(new View.OnClickListener() {
@@ -61,6 +63,13 @@ public class MainActivity extends AppCompatActivity {
             public void onClick(View v) {
 
                 initMultiDialog();
+            }
+        });
+
+        btn_base.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                initDialog();
             }
         });
 
@@ -160,6 +169,29 @@ public class MainActivity extends AppCompatActivity {
         list.add(info_2);
         list.add(info_3);
         return list;
+    }
+
+
+    private void initDialog() {
+        AlertDialog.Builder builder = new AlertDialog.Builder(this);
+        TextView tv = new TextView(this);
+        tv.setText("Title");
+        tv.setTextSize(22);
+        tv.setPadding(30, 20, 10, 10);
+        tv.setTextColor(Color.parseColor("#E22018"));
+        builder.setCustomTitle(tv).setMessage("Title的颜色已经被改变")
+                .setPositiveButton("牛逼", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog, int which) {
+                        Toast.makeText(MainActivity.this, "确认了", Toast.LENGTH_SHORT).show();
+                    }
+                }).setNegativeButton("知道了", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialog, int which) {
+                Toast.makeText(MainActivity.this, "取消了", Toast.LENGTH_SHORT).show();
+            }
+        }).create().show();
+
     }
 
 

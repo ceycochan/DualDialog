@@ -42,4 +42,13 @@
         android:textSize="20sp" />
 
 
+    <Button
+        android:id="@+id/btn_base_dialog"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="30dp"
+        android:background="#999988"
+        android:text="Base Dialog" />
+
+
 </LinearLayout>

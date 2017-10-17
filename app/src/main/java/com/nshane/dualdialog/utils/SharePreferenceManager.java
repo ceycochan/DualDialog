@@ -3,9 +3,7 @@ package com.nshane.dualdialog.utils;
 import android.content.Context;
 import android.content.SharedPreferences;
 
-/**
- * Created by lzz on 2016/6/15.
- */
+
 public class SharePreferenceManager {
     /**
      * 定义用于SETTING_DOMAIN的xml文件名称，以及xml文件的所有键名与对应的默认键值
@@ -15,10 +13,10 @@ public class SharePreferenceManager {
         public static final String XML_NAME = "SETTING_DOMAIN";
 
 
-//        public static final KEY<String> KEY_SERVER_DOMAIN = new KEY<String>("server_domain", Constants.SERVER_HOST_DEFAULT);
+        public static final KEY<String> KEY_SERVER_DOMAIN = new KEY<String>("server_domain", Constants.SERVER_HOST_DEFAULT);
         public static final KEY<String> KEY_SERVER_DOMAIN_REQUEST = new KEY<String>("server_site", "");
 
-//        public static final KEY<String> KEY_SERVER_LOG = new KEY<String>("server_log_default", Constants.SERVER_LOG_DEFAULT);
+        public static final KEY<String> KEY_SERVER_LOG = new KEY<String>("server_log_default", Constants.SERVER_LOG_DEFAULT);
         public static final KEY<String> KEY_SERVER_LOG_REQUEST = new KEY<String>("server_log", "");
 
     }
