@@ -8,7 +8,7 @@ A demo for concluding various of ad, which is still TBC...
 #Preview
 
 
-![Alt text](https://github.com/ceycochan/AvatarEditor/blob/master/app/src/main/res/drawable-xxhdpi/p2.jpg)
-![Alt text](https://github.com/ceycochan/AvatarEditor/blob/master/app/src/main/res/drawable-xxhdpi/p3.jpg)
-![Alt text](https://github.com/ceycochan/AvatarEditor/blob/master/app/src/main/res/drawable-xxhdpi/p6.jpg)
-![Alt text](https://github.com/ceycochan/AvatarEditor/blob/master/app/src/main/res/drawable-xxhdpi/p7.jpg)
+![Alt text](https://github.com/ceycochan/DualDialog/blob/master/app/src/main/res/drawable/p1.jpg)
+![Alt text](https://github.com/ceycochan/DualDialog/blob/master/app/src/main/res/drawable/p2.jpg)
+![Alt text](https://github.com/ceycochan/DualDialog/blob/master/app/src/main/res/drawable/p3.jpg)
+![Alt text](https://github.com/ceycochan/DualDialog/blob/master/app/src/main/res/drawable/p4.jpg)
